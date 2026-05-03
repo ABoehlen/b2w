@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gcc -I ./include ./src/main.c ./src/getch.c ./src/io.c ./src/misc.c -o b2w -lm
