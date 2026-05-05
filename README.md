@@ -1,18 +1,18 @@
 # b2w
 
 ## Purpose
-b2w is used to collect the kilometres for the "Bike To Work" campaign in a comma-separated table.
+b2w is a simple command-line program written in C using basic functions only \[1\]. It is used to collect the kilometres for the "Bike To Work" campaign in a comma-separated table.
 The fields are: Date, Morning, Midday, Evening and Sum.
-The value in "Sum" has to be entered in the appropriate field on the website https://www.biketowork.ch/
+The rounded integer value under "Sum" has to be entered in the appropriate field on the website https://www.biketowork.ch/
 
 ## Background
-Bike to Work is a campaign to promote health within companies. You can participate in Bike to Work as soon as your company is registered. To do this you create a personal profile, assign it to your company and then record your bike days regularly on the calendar. (https://www.biketowork.ch/en/faq)
+*Bike to Work is a campaign to promote health within companies. You can participate in Bike to Work as soon as your company is registered. To do this you create a personal profile, assign it to your company and then record your bike days regularly on the calendar.* (https://www.biketowork.ch/en/faq)
 
 ## System requirements
-The program can be used on all UNIX-like systems and also runs on Android (using the Cxxdroid app). Currently, it does not run on Windows.
+The program can be built and run on all UNIX-like systems and it also runs on Android (using the Cxxdroid app). Currently, it does not run on Windows.
 
 ## Installation
-Download the repository into your desired directory and build the binary:
+Download the repository into your desired directory and build the binary, using the enclosed shell script:
 
 ```
 cd <directory>
@@ -22,18 +22,23 @@ cd b2w
 ```
 
 ## Usage
-The data is saved in a comma-separated text file with the extension \*.txt. This file can be generated directly by the program the first time it is used, or created manually using a text editor.
-The program is launched from the command line using the command "b2w". The txt files contained in the corresponding directory are listed, after which the correct file must be specified.
-You are then taken to the main menu, which contains the following functions:
+The data will be saved in a comma-separated text file with the extension \*.csv. This file can be created when you use the program for the first time, or you create it manually using a text editor.
+The program is launched from the command line using the command "b2w". The csv files contained in the current directory are listed, after which the correct file must be specified.
+After that the main menu appears, which currently contains only two functions:
 
 ### Collect data
-The following information must be provided:
+This function is used to collect the data for each day. You must provide the following information:
 - Date in the format YYYYMMDD (e.g. 20260501)
-- The number of kilometres traveled by bicycle in the morning, at midday, and in the evening. The value can be entered as a whole number or with one decimal place. If you didn't ride, just enter 0 or press the Enter key.
-After this day is entered, you can either enter the data for the next day right away or return to the main menu.
+- The number of kilometres traveled by bicycle in the morning, at midday, and in the evening. The value can be entered as a whole number or with one decimal place. If you didn't ride, enter 0 or just press the Enter key.
+Once the data for the current day is complete, you can either enter the data for another day right away or return to the main menu.
 
 ### List table content
-A clear table appears, showing the total number of kilometers traveled each day, rounded to the nearest whole number. You should enter this number into your personal calendar at https://www.biketowork.ch. The total number of kilometers is also calculated.
+A clear table appears, showing the total number of kilometers traveled each day, rounded to the nearest whole number. You should enter this number into your personal calendar at https://www.biketowork.ch. The total number of kilometers is also calculated and appears at the bottom of the table.
+
+For futher calculations the csv file can easily be imported into a spreadsheet oder database application. You may need to change the extension to \*.txt to do this.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details
+
+## Literature
+\[1\] Kernighan & Ritchie: The C Programming Language, 1978

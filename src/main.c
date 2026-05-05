@@ -1,7 +1,7 @@
 /* Program name: b2w
  * Author:       Adrian Boehlen
  *
- * The program is used to collect the kilometres for the "Bike To Work" campaign
+ * The program is used to collect the kilometres for the campaign "Bike To Work"
  * in a comma-separated table
  * The fields are: Date, Morning, Midday, Evening and Sum
  * The value in "Sum" has to be entered in the appropriate field on the website biketowork.ch
@@ -18,8 +18,8 @@ extern char even[];
 extern char tabname[];
 
 int main() {
-  char * vers = "v0.5";
-  char * vdat =  "03.05.2026";
+  char * vers = "v0.6";
+  char * vdat =  "05.05.2026";
   int c;
 
   printHeader(vers, vdat);
@@ -27,9 +27,9 @@ int main() {
   /* choose and open table file */
   FILE *fp, *fopen();
 
-  printf("\ntxt-Files in current directory\n");
+  printf("\ncsv-Files in current directory\n");
   rep(30, '-');
-  listDirTxt(".");
+  listDirFilt(".", ".csv");
   printf("\nChoose table or define a new one (for collecting only): ");
   while ((getLine(tabname, MAXLINE)) != '\n')
     ;

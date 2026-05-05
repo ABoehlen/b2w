@@ -29,13 +29,11 @@ char even[MAXLINE];    /* kilometres evening string */
 /* general functions */
 int choice();                                   /* fetch one character without newline */
 void copy(char * s1, char * s2, int lim);       /* copy string up to the maximum length (lim) */
-int getch(void);                                /* get a possibly pushed back character */
 int getLine(char * s, int lim);                 /* get next line */
-int listDirTxt(char * path);                    /* list .txt files from the given directory */
+int listDirFilt(char * path, char * filt);      /* list files from the given directory which fits to the given filter */
 void readTab(FILE *fp, char * tabname);         /* read table file and print information about it */
 void rep(int n, int c);                         /* print n characters of type c */
 int round2int(float f);                         /* round floating point to integer */
-void ungetch(int c);                            /* push character back on input */
 
 /* specific functions */
 void collectData(FILE *fp);                     /* collect data from keyboard */

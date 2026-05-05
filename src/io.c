@@ -16,7 +16,6 @@ int choice() {
   i = 0;
   while (i < 2 && (c = getchar()))
     s[i++] = c;
-  ungetch(c); /* remove newline character */
   s[i] = '\0';
   return *s;
 }
@@ -78,7 +77,7 @@ int getLine(char s[], int lim) {
 
 
 /* based on www.geeksforgeeks.org, 2025 */
-int listDirTxt(char * path) {
+int listDirFilt(char * path, char * filt) {
 
   struct dirent *de;
 
@@ -90,7 +89,7 @@ int listDirTxt(char * path) {
   }
 
   while ((de = readdir(dr)) != NULL)
-    if (strstr(de->d_name, ".txt") != NULL)
+    if (strstr(de->d_name, filt) != NULL)
       printf("\t%s\n", de->d_name);
 
   closedir(dr);

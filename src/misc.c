@@ -20,9 +20,9 @@ void copy(char * s1, char * s2, int lim) {
 
 void printHeader(char * vers, char * vdat) {
   printf("\n");
-  rep(29, '*');
-  printf("b2w %s, %s\n", vers, vdat);
-  rep(29, '*');
+  rep(30, '*');
+  printf("     b2w %s, %s\n", vers, vdat);
+  rep(30, '*');
   printf("\n");
 }
 
