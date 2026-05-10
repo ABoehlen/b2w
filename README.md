@@ -12,7 +12,7 @@ The rounded integer value under "Sum" has to be entered in the appropriate field
 The program can be built and run on all UNIX-like systems and it also runs on Android (using the Cxxdroid app). Currently, it does not run on Windows.
 
 ## Installation
-Download the repository into your desired directory and build the binary, using the enclosed shell script:
+Download the repository into your desired directory. To build the binary use the enclosed shell script, if possible:
 
 ```
 cd <directory>
@@ -20,6 +20,8 @@ git clone https://github.com/ABoehlen/b2w
 cd b2w
 ./build
 ```
+
+On the Cxxdroid app, create a new project, copy the \*.c and \*.h files into the appropriate directories and then build the binary using the automatically generated CMakeLists.txt file.
 
 ## Usage
 The data will be saved in a comma-separated text file with the extension \*.csv. This file can be created when you use the program for the first time, or you create it manually using a text editor.
