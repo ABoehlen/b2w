@@ -9,7 +9,7 @@ The rounded integer value under "Sum" has to be entered in the appropriate field
 *Bike to Work is a campaign to promote health within companies. You can participate in Bike to Work as soon as your company is registered. To do this you create a personal profile, assign it to your company and then record your bike days regularly on the calendar.* (https://www.biketowork.ch/en/faq)
 
 ## System requirements
-The program can be built and run on all UNIX-like systems and it also runs on Android (using the Cxxdroid app). Currently, it does not run on Windows.
+The program can be built and run on all UNIX-like systems and it also runs on Android (using the Cxxdroid app). You can also build it on Windows, using Code::Blocks.
 
 ## Installation
 Download the repository into your desired directory. To build the binary use the enclosed shell script, if possible:
@@ -21,11 +21,19 @@ cd b2w
 ./build
 ```
 
-On the Cxxdroid app, create a new project, copy the \*.c and \*.h files into the appropriate directories and then build the binary using the automatically generated CMakeLists.txt file.
+In the Cxxdroid app, create a new project, copy the \*.c and \*.h files into the appropriate directories and then build the binary using the automatically generated CMakeLists.txt file.
+
+If you are using Code::Blocks on Windows, create a new project, add the \*.c and \*.h files and then build the binary using the 'Build' function. You should then find it in the subdirectory bin\\Debug.
 
 ## Usage
 The data will be saved in a comma-separated text file with the extension \*.csv. This file can be created when you use the program for the first time, or you create it manually using a text editor.
-The program is launched from the command line using the command "b2w". The csv files contained in the current directory are listed, after which the correct file must be specified.
+
+The program is launched from the command line using the command "b2w". The csv files contained in the current directory are listed, after which the correct file must be specified:
+![no command-line arguments](https://github.com/ABoehlen/b2w/blob/main/no_command-line_argument.jpg)
+
+If you already knew the name of the table you can use it as command-line argument:
+![table name as command-line argument](https://github.com/ABoehlen/b2w/blob/main/command-line_argument_table.jpg)
+
 After that the main menu appears, which currently contains only two functions:
 
 ### Collect data
@@ -36,6 +44,7 @@ Once the data for the current day is complete, you can either enter the data for
 
 ### List table content
 A clear table appears, showing the total number of kilometers traveled each day, rounded to the nearest whole number. You should enter this number into your personal calendar at https://www.biketowork.ch. The total number of kilometers is also calculated and appears at the bottom of the table.
+![table name as command-line argument](https://github.com/ABoehlen/b2w/blob/main/list_table_android.jpg)
 
 For futher calculations the csv file can easily be imported into a spreadsheet oder database application. You may need to change the extension to \*.txt to do this.
 

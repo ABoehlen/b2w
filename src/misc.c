@@ -4,20 +4,6 @@
 #include <stdlib.h>
 #include "b2w.h"
 
-/* by Kernighan & Ritchie, 1978 */
-void copy(char * s1, char * s2, int lim) {
-  int i = 0;
-  
-  while ((s2[i] = s1[i]) != '\0') {
-    ++i;
-    if (i == lim-1) {
-      s2[++i] = '\0';
-      break;
-    }
-  }
-}
-
-
 void printHeader(char * vers, char * vdat) {
   printf("\n");
   rep(30, '*');
@@ -44,5 +30,5 @@ void rep(int n, int c) {
 
 
 int round2int(float f) {
-  return (int) (f + 0.5);
+  return f + 0.5;
 }

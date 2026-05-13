@@ -25,7 +25,7 @@ void collectData(FILE *fp) {
   float sum;
   int sumInt;
   
-  printf("Enter your Bike to Work kilometres here\n");
+  printf("Enter your 'Bike to Work' kilometres here\n");
     do {
       sum = 0;
       do {
@@ -58,7 +58,7 @@ void collectData(FILE *fp) {
 
     fprintf(fp, FORMWRITE, dat, morn, midd, even, sumInt);
 
-    printf("Enter another Bike to Work day (y/n)?\n");
+    printf("Enter another 'Bike to Work' day (y/n)?\n");
 
   } while (choice() == 'y');
 }
@@ -100,7 +100,6 @@ int listDirFilt(char * path, char * filt) {
 void readTab(FILE *fp, char * tabname) {
   char buffer[MAXLINE];
   int i, j;
-  int dat;
   float sum;
   int sumInt;
   int total;
@@ -118,30 +117,30 @@ void readTab(FILE *fp, char * tabname) {
   while (fgets(buffer, MAXLINE, fp)) {
     sum = 0;
 
-    /* collecting data from input line */
-    for (i = BEGYEAR; i <= ENDYEAR; i++)
+    /* divide the input line into the corresponding fields */
+    for (i = BEGYEAR; i < BEGYEAR + YEARW; i++)
       year[i] = buffer[i];
     year[4] = '\0';
 
-    for (i = BEGMONTH, j = 0; i <= ENDMONTH; i++)
+    for (i = BEGMONTH, j = 0; i < BEGMONTH + MONTHW; i++)
       month[j++] = buffer[i];
     month[j] = '\0';
 
-    for (i = BEGDAY, j = 0; i <= ENDDAY; i++)
+    for (i = BEGDAY, j = 0; i < BEGDAY + DAYW; i++)
       day[j++] = buffer[i];
     day[j] = '\0';
 
-    for (i = BEGMORN, j = 0; i <= ENDMORN; i++)
+    for (i = BEGMORN, j = 0; i < BEGMORN + KMW; i++)
       morn[j++] = buffer[i];
     morn[j] = '\0';
     sum += atof(morn);
 
-    for (i = BEGMIDD, j = 0; i <= ENDMIDD; i++)
+    for (i = BEGMIDD, j = 0; i < BEGMIDD + KMW; i++)
       midd[j++] = buffer[i];
     midd[j] = '\0';
     sum += atof(midd);
     
-    for (i = BEGEVEN, j = 0; i <= ENDEVEN; i++)
+    for (i = BEGEVEN, j = 0; i < BEGEVEN + KMW; i++)
       even[j++] = buffer[i];
     even[j] = '\0';
     sum += atof(even);

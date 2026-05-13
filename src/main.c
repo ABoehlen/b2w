@@ -17,22 +17,34 @@ extern char midd[];
 extern char even[];
 extern char tabname[];
 
-int main() {
-  char * vers = "v0.6";
-  char * vdat =  "05.05.2026";
+int main(int argc, char * argv[]) {
+  char * vers = "v0.7";
+  char * vdat =  "13.05.2026";
   int c;
+  FILE *fp, *fopen();
 
   printHeader(vers, vdat);
 
-  /* choose and open table file */
-  FILE *fp, *fopen();
+  /* open table file */
 
-  printf("\ncsv-Files in current directory\n");
-  rep(30, '-');
-  listDirFilt(".", ".csv");
-  printf("\nChoose table or define a new one (for collecting only): ");
-  while ((getLine(tabname, MAXLINE)) != '\n')
-    ;
+  if (argc == 2) {
+    printf("reading table %s...\n", argv[1]);
+    strcpy(tabname, argv[1]);
+  }
+  else {
+    printf("\ncsv-Files in current directory\n");
+    rep(30, '-');
+    listDirFilt(".", ".csv");
+    printf("\nChoose table or define a new one (for collecting only)\n");
+    printf("Type 'quit' to terminate the program\n");
+    printf("> ");
+    while ((getLine(tabname, MAXLINE)) != '\n')
+      ;
+    if (strcmp(tabname, "quit") == 0) {
+      printf("\n...terminating program...\n");
+      return 0;
+    }
+  }
 
   /* main menu */
   char * menuItems = "\n\
