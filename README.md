@@ -44,7 +44,7 @@ Once the data for the current day is complete, you can either enter the data for
 
 ### List table content
 A clear table appears, showing the total number of kilometers traveled each day, rounded to the nearest whole number. You should enter this number into your personal calendar at https://www.biketowork.ch. The total number of kilometers is also calculated and appears at the bottom of the table.
-![table name as command-line argument](https://github.com/ABoehlen/b2w/blob/main/list_table_android.jpg)
+![table name as command-line argument](https://github.com/ABoehlen/b2w/blob/main/list_table_cxxdroid.jpg)
 
 For futher calculations the csv file can easily be imported into a spreadsheet oder database application. You may need to change the extension to \*.txt to do this.
 
