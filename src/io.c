@@ -5,14 +5,14 @@
 #include <dirent.h>
 #include "b2w.h"
 
-extern char dat[];
-extern char morn[];
-extern char midd[];
-extern char even[];
+static char dat[MAXLINE];  /* date string */
+static char morn[MAXLINE]; /* kilometres morning string */
+static char midd[MAXLINE]; /* kilometres midday string */
+static char even[MAXLINE]; /* kilometres evening string */
 
 int choice() {
   char s[3];
-  int c, i;
+  int8 c, i;
   i = 0;
   while (i < 2 && (c = getchar()))
     s[i++] = c;
@@ -23,7 +23,7 @@ int choice() {
 
 void collectData(FILE *fp) {
   float sum;
-  int sumInt;
+  int16 sumInt;
   
   printf("Enter your 'Bike to Work' kilometres here\n");
     do {
@@ -65,8 +65,8 @@ void collectData(FILE *fp) {
 
 
 /* based on Kernighan & Ritchie, 1978 */
-int getLine(char s[], int lim) {
-  int c, i;
+int getLine(char s[], int8 lim) {
+  int8 c, i;
   i = 0;
   while (--lim > 0 && (c = getchar()) != '\n')
     s[i++] = c;
@@ -99,10 +99,10 @@ int listDirFilt(char * path, char * filt) {
 
 void readTab(FILE *fp, char * tabname) {
   char buffer[MAXLINE];
-  int i, j;
+  int8 i, j;
   float sum;
-  int sumInt;
-  int total;
+  int16 sumInt;
+  int16 total;
   char day[3];
   char month[3];
   char year[5];
@@ -120,7 +120,7 @@ void readTab(FILE *fp, char * tabname) {
     /* divide the input line into the corresponding fields */
     for (i = BEGYEAR; i < BEGYEAR + YEARW; i++)
       year[i] = buffer[i];
-    year[4] = '\0';
+    year[YEARW] = '\0';
 
     for (i = BEGMONTH, j = 0; i < BEGMONTH + MONTHW; i++)
       month[j++] = buffer[i];

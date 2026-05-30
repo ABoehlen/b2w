@@ -11,16 +11,12 @@
 #include <string.h>
 #include "b2w.h"
 
-extern char dat[];
-extern char morn[];
-extern char midd[];
-extern char even[];
 extern char tabname[];
 
 int main(int argc, char * argv[]) {
-  char * vers = "v0.7";
-  char * vdat =  "13.05.2026";
-  int c;
+  const char * vers = "v0.8";
+  const char * vdat = "30.05.2026";
+  int8 c;
   FILE *fp, *fopen();
 
   printHeader(vers, vdat);

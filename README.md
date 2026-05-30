@@ -1,9 +1,7 @@
 # b2w
 
 ## Purpose
-b2w is a simple command-line program written in C using basic functions only \[1\]. It is used to collect the kilometres for the "Bike To Work" campaign in a comma-separated table.
-The fields are: Date, Morning, Midday, Evening and Sum.
-The rounded integer value under "Sum" has to be entered in the appropriate field on the website https://www.biketowork.ch/
+b2w is a simple command-line program written in C using basic functions only \[1\]. The goal is to track the number of kilometres for the "Bike to Work" campagn \[2\] traveled throughout the day in order to calculate the daily total. This rounded integer value has to be entered in the appropriate field on the "Bike to Work" website.
 
 ## Background
 *Bike to Work is a campaign to promote health within companies. You can participate in Bike to Work as soon as your company is registered. To do this you create a personal profile, assign it to your company and then record your bike days regularly on the calendar.* (https://www.biketowork.ch/en/faq)
@@ -53,3 +51,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Literature
 \[1\] Kernighan & Ritchie: The C Programming Language, 1978
+
+\[2\] https://www.biketowork.ch/en/challenge

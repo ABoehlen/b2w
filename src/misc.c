@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "b2w.h"
 
-void printHeader(char * vers, char * vdat) {
+void printHeader(const char * vers, const char * vdat) {
   printf("\n");
   rep(30, '*');
   printf("     b2w %s, %s\n", vers, vdat);
@@ -22,7 +22,7 @@ void printMenu(char * menuItems){
 } 
 
 
-void rep(int n, int c) {
+void rep(int8 n, int8 c) {
   while (n-- > 0)
     putchar(c);
   putchar('\n');
