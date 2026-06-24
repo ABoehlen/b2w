@@ -9,6 +9,8 @@ b2w is a simple command-line program written in C using basic functions only \[1
 ## System requirements
 The program can be built and run on all UNIX-like systems and it also runs on Android (using the Cxxdroid app). You can also build it on Windows, using Code::Blocks.
 
+b2w uses the library "dirent.h" to access directories, which is a POSIX extension and as such not typically found on Windows. \[3\] Consequently, some compilers (e.g. tcc) do not work on Windows.
+
 ## Installation
 Download the repository into your desired directory. To build the binary use the enclosed shell script, if possible:
 
@@ -53,3 +55,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 \[1\] Kernighan & Ritchie: The C Programming Language, 1978
 
 \[2\] https://www.biketowork.ch/en/challenge
+
+\[3\] https://stackoverflow.com/questions/23607994/where-is-the-code-for-dirent-h-opendir-readdir-closedir-undefined-symbol
