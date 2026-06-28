@@ -7,23 +7,33 @@ b2w is a simple command-line program written in C using basic functions only \[1
 *Bike to Work is a campaign to promote health within companies. You can participate in Bike to Work as soon as your company is registered. To do this you create a personal profile, assign it to your company and then record your bike days regularly on the calendar.* (https://www.biketowork.ch/en/faq)
 
 ## System requirements
-The program can be built and run on all UNIX-like systems and it also runs on Android (using the Cxxdroid app). You can also build it on Windows, using Code::Blocks.
-
-b2w uses the library "dirent.h" to access directories, which is a POSIX extension and as such not typically found on Windows. \[3\] Consequently, some compilers (e.g. tcc) do not work on Windows.
+The program can be built and run on various systems, such as Linux, Windows and Android.
 
 ## Installation
-Download the repository into your desired directory. To build the binary use the enclosed shell script, if possible:
+Download the repository into your desired directory.
 
 ```
 cd <directory>
 git clone https://github.com/ABoehlen/b2w
-cd b2w
-./build
 ```
 
-In the Cxxdroid app, create a new project, copy the \*.c and \*.h files into the appropriate directories and then build the binary using the automatically generated CMakeLists.txt file.
+### Linux and other POSIX conformant systems
+Use the enclosed shellscript which builds the binary using the gcc compiler.
 
-If you are using Code::Blocks on Windows, create a new project, add the \*.c and \*.h files and then build the binary using the 'Build' function. You should then find it in the subdirectory bin\\Debug.
+```
+cd b2w
+./build_gcc
+```
+
+### Windows
+On Windows (10 / 11) the following compilers have been tested successfully:
+
+* In Code::Blocks, create a new project, add the \*.c and \*.h files and then build the binary using the 'Build' function. You should then find it in the subdirectory bin\\Debug.
+* TCC (Tiny C Compiler) is a very small compiler (as the name suggests), but it is useful in many situations. Before using it, copy the "b2w.h" into the source directory. Do the same with the "build_tcc.cmd" batch file. Ensure, that the PATH variable includes the folder containing tcc.exe. Then build the binary by double clicking on "build_tcc.cmd".
+* Cygwin can also be used. The procedure is the same as on Linux systems. Please note that the resulting "b2w.exe" can only be run within Cygwin. It's not a stand alone Windows executable file.
+
+### Android
+In the Cxxdroid app, create a new project, copy the \*.c and \*.h files into the appropriate directories and then build the binary using the automatically generated CMakeLists.txt file.
 
 ## Usage
 The data will be saved in a comma-separated text file with the extension \*.csv. This file can be created when you use the program for the first time, or you create it manually using a text editor.
@@ -55,5 +65,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 \[1\] Kernighan & Ritchie: The C Programming Language, 1978
 
 \[2\] https://www.biketowork.ch/en/challenge
-
-\[3\] https://stackoverflow.com/questions/23607994/where-is-the-code-for-dirent-h-opendir-readdir-closedir-undefined-symbol

@@ -11,11 +11,13 @@
 #include <string.h>
 #include "b2w.h"
 
-extern char tabname[];
+/* global variable */
+char tabname[MAXLINE]; /* table file name string */
 
 int main(int argc, char * argv[]) {
-  const char * vers = "v0.8";
-  const char * vdat = "30.05.2026";
+  extern char tabname[];
+  const char * vers = "v0.9";
+  const char * vdat = "28.06.2026";
   int8 c;
   FILE *fp, *fopen();
 
@@ -30,7 +32,7 @@ int main(int argc, char * argv[]) {
   else {
     printf("\ncsv-Files in current directory\n");
     rep(30, '-');
-    listDirFilt(".", ".csv");
+    listDirFilt(".csv");
     printf("\nChoose table or define a new one (for collecting only)\n");
     printf("Type 'quit' to terminate the program\n");
     printf("> ");

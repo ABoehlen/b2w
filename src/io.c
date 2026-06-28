@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <dirent.h>
 #include "b2w.h"
 
 static char dat[MAXLINE];  /* date string */
@@ -76,24 +75,36 @@ int getLine(char s[], int8 lim) {
 }
 
 
-/* based on www.geeksforgeeks.org, 2025 */
-int listDirFilt(char * path, char * filt) {
+/* we use popen() to list files in a directory on various operating systems, since C does not provide a built-in function fot this */
+void listDirFilt(char * filt) {
+  FILE *fp;
+  char buf[MAXLINE];
+  char cmd[MAXLINE];
 
-  struct dirent *de;
+  /* Command for Windows */
+#ifdef _WIN32
+  strcpy(cmd, "dir /B *");
+  strcat(cmd, filt);
+  fp = popen(cmd, "r");
+#else
+  /* Command for POSIX Systems */
+  strcpy(cmd, "ls -1 *");
+  strcat(cmd, filt);
+  fp = popen(cmd, "r");
+#endif
 
-  DIR *dr = opendir(path);
-
-  if (dr == NULL) {
-    printf("Could not open current directory ");
-    exit(1);
+  /* check if the command was successful */
+  if (fp == NULL) {
+    printf("Error executing listDirFilt\n");
+    return;
   }
 
-  while ((de = readdir(dr)) != NULL)
-    if (strstr(de->d_name, filt) != NULL)
-      printf("\t%s\n", de->d_name);
+  /* read every line and print it */
+  while (fgets(buf, MAXLINE, fp) != NULL) {
+    printf("%s", buf);
+  }
 
-  closedir(dr);
-  return 0;
+  pclose(fp);
 }
 
 

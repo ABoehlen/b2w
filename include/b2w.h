@@ -1,4 +1,4 @@
-/* symbolic constants */
+ /* symbolic constants */
 #define MAXLINE   100       /* maximum input line size */
 #define DATW        8       /* length of date field */
 #define YEARW       4       /* length of year field */
@@ -20,14 +20,13 @@
 typedef unsigned char      int8;  /* 8bit integer */
 typedef unsigned short int int16; /* 16bit integer */
 
-/* global variables */
-char tabname[MAXLINE]; /* table file name string */
+
 
 /* general functions */
 int choice();                                   /* fetch one character without newline */
 void copy(char * s1, char * s2, int8 lim);      /* copy string up to the maximum length (lim) */
 int getLine(char * s, int8 lim);                /* get next line */
-int listDirFilt(char * path, char * filt);      /* list files from the given directory which fits to the given filter */
+void listDirFilt(char * filt);                  /* list files from the current directory which fits to the given filter */
 void readTab(FILE *fp, char * tabname);         /* read table file and print information about it */
 void rep(int8 n, int8 c);                       /* print n characters of type c */
 int round2int(float f);                         /* round floating point to integer */
