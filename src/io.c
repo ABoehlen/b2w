@@ -75,7 +75,7 @@ int getLine(char s[], int8 lim) {
 }
 
 
-/* we use popen() to list files in a directory on various operating systems, since C does not provide a built-in function fot this */
+/* we use popen() to list files in a directory on various operating systems, since C does not provide a built-in function for this */
 void listDirFilt(char * filt) {
   FILE *fp;
   char buf[MAXLINE];

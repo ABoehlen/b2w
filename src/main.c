@@ -11,13 +11,11 @@
 #include <string.h>
 #include "b2w.h"
 
-/* global variable */
-char tabname[MAXLINE]; /* table file name string */
+static char tabname[MAXLINE]; /* table file name string */
 
 int main(int argc, char * argv[]) {
-  extern char tabname[];
-  const char * vers = "v0.9";
-  const char * vdat = "28.06.2026";
+  const char * vers = "v0.10";
+  const char * vdat = "29.06.2026";
   int8 c;
   FILE *fp, *fopen();
 

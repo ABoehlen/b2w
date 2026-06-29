@@ -20,8 +20,6 @@
 typedef unsigned char      int8;  /* 8bit integer */
 typedef unsigned short int int16; /* 16bit integer */
 
-
-
 /* general functions */
 int choice();                                   /* fetch one character without newline */
 void copy(char * s1, char * s2, int8 lim);      /* copy string up to the maximum length (lim) */
